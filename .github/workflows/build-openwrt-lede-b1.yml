@@ -41,19 +41,19 @@ jobs:
           chmod +x build.sh && ./build.sh
 
       - name: Upload Packages
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@main
         with:
           name: Newifi3-d2-Packages-${{ env.FILE_DATE }}
           path: ${{ env.BIN_PATH }}/packages/
 
       - name: Upload Firmwares
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@main
         with:
           name: Newifi3-d2-Firmwares-${{ env.FILE_DATE }}
           path: ${{ env.BIN_PATH }}/targets/
 
       - name: Upload bin
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@main
         with:
           name: immortalwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade-${{ env.FILE_DATE }}
           path: ${{ env.BIN_PATH }}/targets/ramips/
