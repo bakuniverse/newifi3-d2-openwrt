@@ -9,13 +9,14 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
   libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \
   vim wget xmlto xxd zlib1g-dev
 
-export OP_BUILD_PATH=$PWD
-git clone https://github.com/coolsnowwolf/lede.git
+git clone -b https://github.com/coolsnowwolf/lede.git openwrt
 
-cd "${OP_BUILD_PATH}"/lede || exit
+ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+
+cd $GITHUB_WORKSPACE/openwrt || exit
 ./scripts/feeds update -a && ./scripts/feeds install -a
 rm -rf ./tmp && rm -rf .config
-mv "${OP_BUILD_PATH}"/.config "${OP_BUILD_PATH}"/lede/.config
+mv " $GITHUB_WORKSPACE"/.config " $GITHUB_WORKSPACE"/openwrt/.config
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 make defconfig
 make download -j8
