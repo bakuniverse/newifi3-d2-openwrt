@@ -13,7 +13,7 @@ git clone -b https://github.com/coolsnowwolf/lede.git openwrt
 
 #ln -sf /workdir/openwrt $GITHUB_WORKSPACE
 
-cd $GITHUB_WORKSPACE/openwrt || exit
+cd /workdir/openwrt || exit
 ./scripts/feeds update -a && ./scripts/feeds install -a
 rm -rf ./tmp && rm -rf .config
 mv " $GITHUB_WORKSPACE"/.config " $GITHUB_WORKSPACE"/openwrt/.config
