@@ -11,7 +11,7 @@ sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bis
 
 git clone -b https://github.com/coolsnowwolf/lede.git openwrt
 
-ln -sf /workdir/openwrt $GITHUB_WORKSPACE
+#ln -sf /workdir/openwrt $GITHUB_WORKSPACE
 
 cd $GITHUB_WORKSPACE/openwrt || exit
 ./scripts/feeds update -a && ./scripts/feeds install -a
