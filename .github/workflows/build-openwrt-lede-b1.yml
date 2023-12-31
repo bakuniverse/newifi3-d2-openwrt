@@ -15,8 +15,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      BIN_PATH: $GITHUB_WORKSPACE/openwrt/bin
 
     steps:
       - name: Clone Repository
@@ -89,22 +87,16 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: Newifi3-d2-Packages-${{ env.FILE_DATE }}
-          path: ${{ env.BIN_PATH }}/packages/
+          path: openwrt/bin/targets/packages
 
       - name: Upload Firmwares
         uses: actions/upload-artifact@main
         with:
           name: Newifi3-d2-Firmwares-${{ env.FILE_DATE }}
-          path: ${{ env.BIN_PATH }}/targets/
-
-      - name: Upload bin
-        uses: actions/upload-artifact@main
-        with:
-          name: immortalwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade-${{ env.FILE_DATE }}
-          path: ${{ env.BIN_PATH }}/targets/ramips/
+          path: openwrt/bin/targets/targets
 
       - name: Upload manifest
         uses: actions/upload-artifact@v3
         with:
           name: manifest-${{ env.FILE_DATE }}
-          path: ${{ env.BIN_PATH }}/targets/ramips/mt7621/openwrt-ramips-mt7621-d-team_newifi-d2.manifest
+          path: ${{ env.BIN_PATH }}/targets/ramips/mt7621
