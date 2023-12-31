@@ -93,10 +93,10 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: Newifi3-d2-Firmwares-${{ env.FILE_DATE }}
-          path: openwrt/bin/targets/targets
-
+          path: openwrt/bin/targets
+          
       - name: Upload manifest
         uses: actions/upload-artifact@v3
         with:
           name: manifest-${{ env.FILE_DATE }}
-          path: ${{ env.BIN_PATH }}/targets/ramips/mt7621
+          path: openwrt/bin/targets/ramips/mt7621
